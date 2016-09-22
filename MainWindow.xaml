@@ -5,8 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:tankmap"
         mc:Ignorable="d"
-        Title="Tankman Map Editor" Height="480" Width="640">
-    <Grid>
-        
-    </Grid>
+        Icon="./res/icon.png"
+        Loaded="Window_Loaded" Closing="Window_Closing"
+        Title="Tankman Map Editor" Height="768" Width="1024">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New" Click="menuFileNew_Click"/>
+                <MenuItem Header="_Open..." Click="menuFileOpen_Click"/>
+                <MenuItem Header="_Save" x:Name="menuFileSave" Click="menuFileSave_Click"/>
+                <MenuItem Header="S_ave As..." x:Name="menuFileSaveAs" Click="menuFileSaveAs_Click"/>
+                <MenuItem Header="_Close" x:Name="menuFileClose" Click="menuFileClose_Click"/>
+                <Separator/>
+                <MenuItem Header="E_xit" Click="menuFileExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Edit">
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About..." Click="menuHelpAbout_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <DockPanel DockPanel.Dock="Bottom">
+            <RadioButton Style="{StaticResource RadioButton}" ToolTip="Block" x:Name="radioBlock" Tag="0" Click="RadioButton_Click">
+                <!--<Image Margin="4,4,4,4" Source="./res/block.png" Tag="0" x:Name="imageBlock"/>-->
+                <Image Margin="4,4,4,4" Tag="0" x:Name="imageBlock"/>
+            </RadioButton>
+            <RadioButton Style="{StaticResource RadioButton}" ToolTip="Movable" Tag="1" Click="RadioButton_Click">
+                <!--
+                <Image Margin="4,4,4,4" Source="./res/movable.png" Tag="1" x:Name="imageMovable"/>
+                -->
+                <Image Margin="4,4,4,4" Tag="1" x:Name="imageMovable"/>
+            </RadioButton>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <TextBlock FontSize="24" x:Name="textSize">888 x 888</TextBlock>
+            </StackPanel>
+        </DockPanel>
+
+        <Grid>
+            <ScrollViewer>
+                <UniformGrid x:Name="mapGrid"/>
+            </ScrollViewer>
+        </Grid>
+    </DockPanel>
 </Window>
