@@ -3,10 +3,18 @@
 namespace tankmap {
     public class Map {
 
+        public const int BLOCK_PASS = 0;
+        public const int BLOCK_TREE = 1;
+        public const int BLOCK_BRICK = 2;
+        public const int BLOCK_STEEL = 3;
+        public const int BLOCK_WATER = 4;
+        public const int BLOCK_EAGLE = 5;
+        public const int BLOCK_HERO = 6;
+
         private int width;
         private int height;
-        private byte[] mapData;
-        private int[] imageData;
+        private int heroX;
+        private int heroY;
         private int[] blockData;
 
         /// <summary>
@@ -15,12 +23,11 @@ namespace tankmap {
         public Map(int w, int h) {
             width = w;
             height = h;
-            mapData = new byte[width * height];
-            imageData = new int[width * height];
+            heroX = -1;
+            heroY = -1;
             blockData = new int[width * height];
-
             for (var i = 0; i < width * height; i++)
-                Set(i, 0);
+                Set(i, BLOCK_PASS);
         }
 
         /// <summary>
@@ -32,28 +39,22 @@ namespace tankmap {
             var reader = new BinaryReader(stream);
             try {
                 // reads header, 8 bytes
-                // header=CAPMAP##, # = ASCII 0
-                byte[] check = { 0x43, 0x41, 0x50, 0x4D, 0x41, 0x50, 0x00, 0x00, };
+                // header=TANK####, # = ASCII 0
+                byte[] check = { 0x54, 0x41, 0x4E, 0x4B, 0x00, 0x00, 0x00, 0x00, };
                 var header = reader.ReadBytes(8);
                 for (int i = 0; i < header.Length; i++)
                     if (header[i] != check[i])
                         throw new IOException("Header is not acceptable.");
 
                 // reads header information
-                // 6 int = width, height, divo start width, divo start height, pacman start width, pacman start height
+                // 4 int = width, height, hero x, hero y
                 int w = reader.ReadInt32();
                 int h = reader.ReadInt32();
-                int size = w * h;
-
-                // mapData and imageData are for game, not used map editor, just copying
-                byte[] mapData = new byte[size];
-                for (int i = 0; i < size; i++)
-                    mapData[i] = reader.ReadByte();
-                int[] imageData = new int[size];
-                for (int i = 0; i < size; i++)
-                    imageData[i] = reader.ReadInt32();
+                int x = reader.ReadInt32();
+                int y = reader.ReadInt32();
 
                 // reads block data
+                int size = w * h;
                 int[] blockData = new int[size];
                 for (int i = 0; i < size; i++)
                     blockData[i] = reader.ReadInt32();
@@ -61,8 +62,8 @@ namespace tankmap {
                 // copying data
                 this.width = w;
                 this.height = h;
-                this.mapData = mapData;
-                this.imageData = imageData;
+                this.heroX = x;
+                this.heroY = y;
                 this.blockData = blockData;
             }
             finally {
@@ -80,23 +81,19 @@ namespace tankmap {
             var writer = new BinaryWriter(stream);
             try {
                 // writes header, 8 bytes
-                // header=CAPMAP##, # = ASCII 0
-                byte[] check = { 0x43, 0x41, 0x50, 0x4D, 0x41, 0x50, 0x00, 0x00, };
+                // header=TANK####, # = ASCII 0
+                byte[] check = { 0x54, 0x41, 0x4E, 0x4B, 0x00, 0x00, 0x00, 0x00, };
                 writer.Write(check);
 
                 // writes header information
-                // 6 int = width, height, divo start width, divo start height, pacman start width, pacman start height
+                // 4 int = width, height, hero x, hero y
                 writer.Write(width);
                 writer.Write(height);
-                int size = width * height;
-
-                // writes map data and image data for game
-                for (int i = 0; i < size; i++)
-                    writer.Write(mapData[i]);
-                for (int i = 0; i < size; i++)
-                    writer.Write(imageData[i]);
+                writer.Write(heroX);
+                writer.Write(heroY);
 
                 // writes block data
+                int size = width * height;
                 for (int i = 0; i < size; i++)
                     writer.Write(blockData[i]);
             }
@@ -114,29 +111,25 @@ namespace tankmap {
             return height;
         }
 
+        public int GetHeroX() {
+            return heroX;
+        }
+
+        public int GetHeroY() {
+            return heroY;
+        }
+
+        public void SetHeroXY(int x, int y) {
+            heroX = x;
+            heroY = y;
+        }
+
         public int Get(int index) {
             return blockData[index];
         }
 
         public void Set(int index, int data) {
             blockData[index] = data;
-
-            // translate block to map and image
-            if (data == 0) {
-                // blocking
-                mapData[index] = 0x01;
-                imageData[index] = 3;
-            }
-            else if (data == 1) {
-                // movable
-                mapData[index] = 0x00;
-                imageData[index] = 0;
-            }
-            else {
-                // treat like blocking
-                mapData[index] = 0x01;
-                imageData[index] = 3;
-            }
         }
 
     }

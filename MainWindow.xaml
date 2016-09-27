@@ -20,6 +20,11 @@
                 <MenuItem Header="E_xit" Click="menuFileExit_Click"/>
             </MenuItem>
             <MenuItem Header="_Edit">
+                <MenuItem Header="Around with Pass" x:Name="menuEditPass" Click="menuEditPass_Click"/>
+                <MenuItem Header="Around with Tree" x:Name="menuEditTree" Click="menuEditTree_Click"/>
+                <MenuItem Header="Around with Brick" x:Name="menuEditBrick" Click="menuEditBrick_Click"/>
+                <MenuItem Header="Around with Steel" x:Name="menuEditSteel" Click="menuEditSteel_Click"/>
+                <MenuItem Header="Around with Water" x:Name="menuEditWater" Click="menuEditWater_Click"/>
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="_About..." Click="menuHelpAbout_Click"/>
@@ -27,15 +32,26 @@
         </Menu>
 
         <DockPanel DockPanel.Dock="Bottom">
-            <RadioButton Style="{StaticResource RadioButton}" ToolTip="Block" x:Name="radioBlock" Tag="0" Click="RadioButton_Click">
-                <!--<Image Margin="4,4,4,4" Source="./res/block.png" Tag="0" x:Name="imageBlock"/>-->
-                <Image Margin="4,4,4,4" Tag="0" x:Name="imageBlock"/>
+            <RadioButton Style="{StaticResource RadioButton}" Tag="0" ToolTip="Passable" Click="RadioButton_Click" x:Name="radioBlock">
+                <Image Margin="4,4,4,4" Source="./res/block_pass.png" Tag="0" x:Name="imagePass"/>
             </RadioButton>
-            <RadioButton Style="{StaticResource RadioButton}" ToolTip="Movable" Tag="1" Click="RadioButton_Click">
-                <!--
-                <Image Margin="4,4,4,4" Source="./res/movable.png" Tag="1" x:Name="imageMovable"/>
-                -->
-                <Image Margin="4,4,4,4" Tag="1" x:Name="imageMovable"/>
+            <RadioButton Style="{StaticResource RadioButton}" Tag="1" ToolTip="Tree, pass with partial bind" Click="RadioButton_Click">
+                <Image Margin="4,4,4,4" Source="./res/block_tree.png" Tag="1" x:Name="imageTree"/>
+            </RadioButton>
+            <RadioButton Style="{StaticResource RadioButton}" Tag="2" ToolTip="Brick, can be shoot" Click="RadioButton_Click">
+                <Image Margin="4,4,4,4" Source="./res/block_brick.png" Tag="2" x:Name="imageBrick"/>
+            </RadioButton>
+            <RadioButton Style="{StaticResource RadioButton}" Tag="3" ToolTip="Steel, cannot be break" Click="RadioButton_Click">
+                <Image Margin="4,4,4,4" Source="./res/block_steel.png" Tag="3" x:Name="imageSteel"/>
+            </RadioButton>
+            <RadioButton Style="{StaticResource RadioButton}" Tag="4" ToolTip="Water, not pass" Click="RadioButton_Click">
+                <Image Margin="4,4,4,4" Source="./res/block_water.png" Tag="4" x:Name="imageWater"/>
+            </RadioButton>
+            <RadioButton Style="{StaticResource RadioButton}" Tag="5" ToolTip="Eagle, destroy all and win" Click="RadioButton_Click">
+                <Image Margin="4,4,4,4" Source="./res/block_eagle.png" Tag="5" x:Name="imageEagle"/>
+            </RadioButton>
+            <RadioButton Style="{StaticResource RadioButton}" Tag="6" ToolTip="Start of your hero" Click="RadioButton_Click">
+                <Image Margin="4,4,4,4" Source="./res/block_hero.png" Tag="6" x:Name="imageHero"/>
             </RadioButton>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                 <TextBlock FontSize="24" x:Name="textSize">888 x 888</TextBlock>

@@ -23,7 +23,7 @@ namespace tankmap {
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             title = Title;
             radioBlock.IsChecked = true;
-            imageSource = imageBlock;
+            imageSource = imagePass;
             EnableMenu(false);
         }
 
@@ -53,7 +53,7 @@ namespace tankmap {
                 var size = mapObject.GetWidth() * mapObject.GetHeight();
                 for (var i = 0; i < size; i++) {
                     var image = new Image();
-                    image.Source = imageBlock.Source;
+                    image.Source = imagePass.Source;
                     image.Margin = new Thickness(1, 1, 1, 1);
                     image.MouseDown += Image_MouseDown;
                     image.Tag = i;
@@ -169,15 +169,54 @@ namespace tankmap {
             dialog.ShowDialog();
         }
 
+        private void menuEditPass_Click(object sender, RoutedEventArgs e) {
+            SurroundWith(Map.BLOCK_PASS, imagePass);
+        }
+
+        private void menuEditTree_Click(object sender, RoutedEventArgs e) {
+            SurroundWith(Map.BLOCK_TREE, imageTree);
+        }
+
+        private void menuEditBrick_Click(object sender, RoutedEventArgs e) {
+            SurroundWith(Map.BLOCK_BRICK, imageBrick);
+        }
+
+        private void menuEditSteel_Click(object sender, RoutedEventArgs e) {
+            SurroundWith(Map.BLOCK_STEEL, imageSteel);
+        }
+
+        private void menuEditWater_Click(object sender, RoutedEventArgs e) {
+            SurroundWith(Map.BLOCK_WATER, imageWater);
+        }
+
         private void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
             var image = (Image)sender;
             if (imageSource != null) {
-                int imageTag = int.Parse(image.Tag.ToString());
+                int imageLocationTag = int.Parse(image.Tag.ToString());
                 int imageSourceTag = int.Parse(imageSource.Tag.ToString());
 
-                if (mapObject.Get(imageTag) != imageSourceTag) {
-                    mapObject.Set(imageTag, imageSourceTag);
+                if (mapObject.Get(imageLocationTag) != imageSourceTag) {
+                    if (mapObject.Get(imageLocationTag) == Map.BLOCK_HERO) {
+                        // removes hero
+                        mapObject.SetHeroXY(-1, -1);
+                    }
+
+                    // sets new image
+                    mapObject.Set(imageLocationTag, imageSourceTag);
                     image.Source = imageSource.Source;
+
+                    if (imageSourceTag == Map.BLOCK_HERO) {
+                        // sets hero
+                        var x = mapObject.GetHeroX();
+                        var y = mapObject.GetHeroY();
+                        if (x >= 0 && y >= 0) {
+                            mapObject.Set(y * mapObject.GetWidth() + x, Map.BLOCK_PASS);
+                            ((Image)mapGrid.Children[y * mapObject.GetWidth() + x]).Source = imagePass.Source;
+                        }
+                        x = imageLocationTag % mapObject.GetWidth();
+                        y = imageLocationTag / mapObject.GetWidth();
+                        mapObject.SetHeroXY(x, y);
+                    }
                 }
 
                 if (!mapChanged) {
@@ -191,22 +230,43 @@ namespace tankmap {
             var radio = (RadioButton)sender;
             if (mapObject != null) {
                 var tag = radio.Tag.ToString();
-                if (tag == "0") {
-                    imageSource = imageBlock;
-                }
-                else {
-                    imageSource = imageBlock;
-                }
+                if (tag == Map.BLOCK_PASS.ToString())
+                    imageSource = imagePass;
+                else if (tag == Map.BLOCK_TREE.ToString())
+                    imageSource = imageTree;
+                else if (tag == Map.BLOCK_BRICK.ToString())
+                    imageSource = imageBrick;
+                else if (tag == Map.BLOCK_STEEL.ToString())
+                    imageSource = imageSteel;
+                else if (tag == Map.BLOCK_WATER.ToString())
+                    imageSource = imageWater;
+                else if (tag == Map.BLOCK_EAGLE.ToString())
+                    imageSource = imageEagle;
+                else if (tag == Map.BLOCK_HERO.ToString())
+                    imageSource = imageHero;
+
+                else
+                    imageSource = imagePass;
             }
         }
 
         private Image MapDataToImage(int data) {
             switch (data) {
                 default:
-                case 0:
-                    return imageBlock;
-                case 1:
-                    return imageMovable;
+                case Map.BLOCK_PASS:
+                    return imagePass;
+                case Map.BLOCK_TREE:
+                    return imageTree;
+                case Map.BLOCK_BRICK:
+                    return imageBrick;
+                case Map.BLOCK_STEEL:
+                    return imageSteel;
+                case Map.BLOCK_WATER:
+                    return imageWater;
+                case Map.BLOCK_EAGLE:
+                    return imageEagle;
+                case Map.BLOCK_HERO:
+                    return imageHero;
             }
         }
 
@@ -222,6 +282,41 @@ namespace tankmap {
             menuFileSave.IsEnabled = enabled;
             menuFileSaveAs.IsEnabled = enabled;
             menuFileClose.IsEnabled = enabled;
+            menuEditPass.IsEnabled = enabled;
+            menuEditTree.IsEnabled = enabled;
+            menuEditBrick.IsEnabled = enabled;
+            menuEditSteel.IsEnabled = enabled;
+            menuEditWater.IsEnabled = enabled;
+        }
+
+        private void SurroundWith(int blockInt, Image blockImage) {
+            var children = mapGrid.Children;
+
+            var start = 0;
+            for (var i = start; i < start + mapObject.GetWidth(); i++) {
+                mapObject.Set(i, blockInt);
+                ((Image)children[i]).Source = blockImage.Source;
+            }
+
+            start = (mapObject.GetHeight() - 1) * mapObject.GetWidth();
+            for (var i = start; i < start + mapObject.GetWidth(); i++) {
+                mapObject.Set(i, blockInt);
+                ((Image)children[i]).Source = blockImage.Source;
+            }
+
+            start = mapObject.GetWidth();
+            while (start < (mapObject.GetHeight() - 1) * mapObject.GetWidth()) {
+                mapObject.Set(start, blockInt);
+                ((Image)children[start]).Source = blockImage.Source;
+                start += mapObject.GetWidth();
+            }
+
+            start = mapObject.GetWidth() * 2 - 1;
+            while (start < (mapObject.GetHeight() - 1) * mapObject.GetWidth()) {
+                mapObject.Set(start, blockInt);
+                ((Image)children[start]).Source = blockImage.Source;
+                start += mapObject.GetWidth();
+            }
         }
 
         private void UpdateTitle() {

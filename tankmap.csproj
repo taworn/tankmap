@@ -37,6 +37,9 @@
   <PropertyGroup>
     <StartupObject>tankmap.App</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -113,10 +116,25 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="res\block_brick.png" />
+    <Resource Include="res\block_pass.png" />
+    <Resource Include="res\block_steel.png" />
+    <Resource Include="res\block_tree.png" />
+    <Resource Include="res\block_water.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="res\icon.ico" />
     <Resource Include="res\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\block_eagle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\block_hero.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
