@@ -32,27 +32,137 @@
         </Menu>
 
         <DockPanel DockPanel.Dock="Bottom">
-            <RadioButton Style="{StaticResource RadioButton}" Tag="0" ToolTip="Passable" Click="RadioButton_Click" x:Name="radioBlock">
-                <Image Margin="4,4,4,4" Source="./res/block_pass.png" Tag="0" x:Name="imagePass"/>
-            </RadioButton>
-            <RadioButton Style="{StaticResource RadioButton}" Tag="1" ToolTip="Tree, pass with partial bind" Click="RadioButton_Click">
-                <Image Margin="4,4,4,4" Source="./res/block_tree.png" Tag="1" x:Name="imageTree"/>
-            </RadioButton>
-            <RadioButton Style="{StaticResource RadioButton}" Tag="2" ToolTip="Brick, can be shoot" Click="RadioButton_Click">
-                <Image Margin="4,4,4,4" Source="./res/block_brick.png" Tag="2" x:Name="imageBrick"/>
-            </RadioButton>
-            <RadioButton Style="{StaticResource RadioButton}" Tag="3" ToolTip="Steel, cannot be break" Click="RadioButton_Click">
-                <Image Margin="4,4,4,4" Source="./res/block_steel.png" Tag="3" x:Name="imageSteel"/>
-            </RadioButton>
-            <RadioButton Style="{StaticResource RadioButton}" Tag="4" ToolTip="Water, not pass" Click="RadioButton_Click">
-                <Image Margin="4,4,4,4" Source="./res/block_water.png" Tag="4" x:Name="imageWater"/>
-            </RadioButton>
-            <RadioButton Style="{StaticResource RadioButton}" Tag="5" ToolTip="Eagle, destroy all and win" Click="RadioButton_Click">
-                <Image Margin="4,4,4,4" Source="./res/block_eagle.png" Tag="5" x:Name="imageEagle"/>
-            </RadioButton>
-            <RadioButton Style="{StaticResource RadioButton}" Tag="6" ToolTip="Start of your hero" Click="RadioButton_Click">
-                <Image Margin="4,4,4,4" Source="./res/block_hero.png" Tag="6" x:Name="imageHero"/>
-            </RadioButton>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="100" ToolTip="Tank 0" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank00.png" Tag="100" x:Name="imageTank00"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="101" ToolTip="Tank 1" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank01.png" Tag="101" x:Name="imageTank01"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="102" ToolTip="Tank 2" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank02.png" Tag="102" x:Name="imageTank02"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="103" ToolTip="Tank 3" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank03.png" Tag="103" x:Name="imageTank03"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="104" ToolTip="Tank 4" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank04.png" Tag="104" x:Name="imageTank04"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="105" ToolTip="Tank 5" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank05.png" Tag="105" x:Name="imageTank05"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="106" ToolTip="Tank 6" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank06.png" Tag="106" x:Name="imageTank06"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="107" ToolTip="Tank 7" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank07.png" Tag="107" x:Name="imageTank07"/>
+                    </RadioButton>
+
+                    <TextBlock Width="32"/>
+
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="110" ToolTip="Tank 0" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank10.png" Tag="110" x:Name="imageTank10"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="111" ToolTip="Tank 1" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank11.png" Tag="111" x:Name="imageTank11"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="112" ToolTip="Tank 2" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank12.png" Tag="112" x:Name="imageTank12"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="113" ToolTip="Tank 3" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank13.png" Tag="113" x:Name="imageTank13"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="114" ToolTip="Tank 4" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank14.png" Tag="114" x:Name="imageTank14"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="115" ToolTip="Tank 5" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank15.png" Tag="115" x:Name="imageTank15"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="116" ToolTip="Tank 6" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank16.png" Tag="116" x:Name="imageTank16"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="117" ToolTip="Tank 7" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank17.png" Tag="117" x:Name="imageTank17"/>
+                    </RadioButton>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="120" ToolTip="Tank 0" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank20.png" Tag="120" x:Name="imageTank20"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="121" ToolTip="Tank 1" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank21.png" Tag="121" x:Name="imageTank21"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="122" ToolTip="Tank 2" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank22.png" Tag="122" x:Name="imageTank22"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="123" ToolTip="Tank 3" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank23.png" Tag="123" x:Name="imageTank23"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="124" ToolTip="Tank 4" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank24.png" Tag="124" x:Name="imageTank24"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="125" ToolTip="Tank 5" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank25.png" Tag="125" x:Name="imageTank25"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="126" ToolTip="Tank 6" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank26.png" Tag="126" x:Name="imageTank26"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="127" ToolTip="Tank 7" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank27.png" Tag="127" x:Name="imageTank27"/>
+                    </RadioButton>
+
+                    <TextBlock Width="32"/>
+
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="130" ToolTip="Tank 0" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank30.png" Tag="130" x:Name="imageTank30"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="131" ToolTip="Tank 1" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank31.png" Tag="131" x:Name="imageTank31"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="132" ToolTip="Tank 2" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank32.png" Tag="132" x:Name="imageTank32"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="133" ToolTip="Tank 3" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank33.png" Tag="133" x:Name="imageTank33"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="134" ToolTip="Tank 4" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank34.png" Tag="134" x:Name="imageTank34"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="135" ToolTip="Tank 5" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank35.png" Tag="135" x:Name="imageTank35"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="136" ToolTip="Tank 6" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank36.png" Tag="136" x:Name="imageTank36"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="137" ToolTip="Tank 7" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/tank37.png" Tag="137" x:Name="imageTank37"/>
+                    </RadioButton>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="0" ToolTip="Passable" Click="RadioButton_Click" x:Name="radioBlock">
+                        <Image Margin="4,4,4,4" Source="./res/block_pass.png" Tag="0" x:Name="imagePass"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="1" ToolTip="Tree, pass with partial bind" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/block_tree.png" Tag="1" x:Name="imageTree"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="2" ToolTip="Brick, can be shoot" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/block_brick.png" Tag="2" x:Name="imageBrick"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="3" ToolTip="Steel, cannot be break" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/block_steel.png" Tag="3" x:Name="imageSteel"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="4" ToolTip="Water, not pass" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/block_water.png" Tag="4" x:Name="imageWater"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="5" ToolTip="Eagle, destroy all and win" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/block_eagle.png" Tag="5" x:Name="imageEagle"/>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource RadioButton}" GroupName="Tools" Tag="6" ToolTip="Start of your hero" Click="RadioButton_Click">
+                        <Image Margin="4,4,4,4" Source="./res/block_hero.png" Tag="6" x:Name="imageHero"/>
+                    </RadioButton>
+                </StackPanel>
+            </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                 <TextBlock FontSize="24" x:Name="textSize">888 x 888</TextBlock>
             </StackPanel>

@@ -136,6 +136,42 @@
   <ItemGroup>
     <Resource Include="res\block_hero.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\tank00.png" />
+    <Resource Include="res\tank01.png" />
+    <Resource Include="res\tank02.png" />
+    <Resource Include="res\tank03.png" />
+    <Resource Include="res\tank04.png" />
+    <Resource Include="res\tank05.png" />
+    <Resource Include="res\tank06.png" />
+    <Resource Include="res\tank07.png" />
+    <Resource Include="res\tank10.png" />
+    <Resource Include="res\tank11.png" />
+    <Resource Include="res\tank12.png" />
+    <Resource Include="res\tank13.png" />
+    <Resource Include="res\tank14.png" />
+    <Resource Include="res\tank15.png" />
+    <Resource Include="res\tank16.png" />
+    <Resource Include="res\tank17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\tank20.png" />
+    <Resource Include="res\tank21.png" />
+    <Resource Include="res\tank22.png" />
+    <Resource Include="res\tank23.png" />
+    <Resource Include="res\tank24.png" />
+    <Resource Include="res\tank25.png" />
+    <Resource Include="res\tank26.png" />
+    <Resource Include="res\tank27.png" />
+    <Resource Include="res\tank30.png" />
+    <Resource Include="res\tank31.png" />
+    <Resource Include="res\tank32.png" />
+    <Resource Include="res\tank33.png" />
+    <Resource Include="res\tank34.png" />
+    <Resource Include="res\tank35.png" />
+    <Resource Include="res\tank36.png" />
+    <Resource Include="res\tank37.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

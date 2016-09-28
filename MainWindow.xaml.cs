@@ -1,8 +1,10 @@
 ﻿using Microsoft.Win32;
+using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace tankmap {
     /// <summary>
@@ -263,6 +265,74 @@ namespace tankmap {
                 else if (tag == Map.BLOCK_HERO.ToString())
                     imageSource = imageHero;
 
+                else if (tag == Map.ENEMY_00.ToString())
+                    imageSource = imageTank00;
+                else if (tag == Map.ENEMY_01.ToString())
+                    imageSource = imageTank01;
+                else if (tag == Map.ENEMY_02.ToString())
+                    imageSource = imageTank02;
+                else if (tag == Map.ENEMY_03.ToString())
+                    imageSource = imageTank03;
+                else if (tag == Map.ENEMY_04.ToString())
+                    imageSource = imageTank04;
+                else if (tag == Map.ENEMY_05.ToString())
+                    imageSource = imageTank05;
+                else if (tag == Map.ENEMY_06.ToString())
+                    imageSource = imageTank06;
+                else if (tag == Map.ENEMY_07.ToString())
+                    imageSource = imageTank07;
+
+                else if (tag == Map.ENEMY_10.ToString())
+                    imageSource = imageTank10;
+                else if (tag == Map.ENEMY_11.ToString())
+                    imageSource = imageTank11;
+                else if (tag == Map.ENEMY_12.ToString())
+                    imageSource = imageTank12;
+                else if (tag == Map.ENEMY_13.ToString())
+                    imageSource = imageTank13;
+                else if (tag == Map.ENEMY_14.ToString())
+                    imageSource = imageTank14;
+                else if (tag == Map.ENEMY_15.ToString())
+                    imageSource = imageTank15;
+                else if (tag == Map.ENEMY_16.ToString())
+                    imageSource = imageTank16;
+                else if (tag == Map.ENEMY_17.ToString())
+                    imageSource = imageTank17;
+
+                else if (tag == Map.ENEMY_20.ToString())
+                    imageSource = imageTank20;
+                else if (tag == Map.ENEMY_21.ToString())
+                    imageSource = imageTank21;
+                else if (tag == Map.ENEMY_22.ToString())
+                    imageSource = imageTank22;
+                else if (tag == Map.ENEMY_23.ToString())
+                    imageSource = imageTank23;
+                else if (tag == Map.ENEMY_24.ToString())
+                    imageSource = imageTank24;
+                else if (tag == Map.ENEMY_25.ToString())
+                    imageSource = imageTank25;
+                else if (tag == Map.ENEMY_26.ToString())
+                    imageSource = imageTank26;
+                else if (tag == Map.ENEMY_27.ToString())
+                    imageSource = imageTank27;
+
+                else if (tag == Map.ENEMY_30.ToString())
+                    imageSource = imageTank30;
+                else if (tag == Map.ENEMY_31.ToString())
+                    imageSource = imageTank31;
+                else if (tag == Map.ENEMY_32.ToString())
+                    imageSource = imageTank32;
+                else if (tag == Map.ENEMY_33.ToString())
+                    imageSource = imageTank33;
+                else if (tag == Map.ENEMY_34.ToString())
+                    imageSource = imageTank34;
+                else if (tag == Map.ENEMY_35.ToString())
+                    imageSource = imageTank35;
+                else if (tag == Map.ENEMY_36.ToString())
+                    imageSource = imageTank36;
+                else if (tag == Map.ENEMY_37.ToString())
+                    imageSource = imageTank37;
+
                 else
                     imageSource = imagePass;
             }
@@ -285,6 +355,74 @@ namespace tankmap {
                     return imageEagle;
                 case Map.BLOCK_HERO:
                     return imageHero;
+
+                case Map.ENEMY_00:
+                    return imageTank00;
+                case Map.ENEMY_01:
+                    return imageTank01;
+                case Map.ENEMY_02:
+                    return imageTank02;
+                case Map.ENEMY_03:
+                    return imageTank03;
+                case Map.ENEMY_04:
+                    return imageTank04;
+                case Map.ENEMY_05:
+                    return imageTank05;
+                case Map.ENEMY_06:
+                    return imageTank06;
+                case Map.ENEMY_07:
+                    return imageTank07;
+
+                case Map.ENEMY_10:
+                    return imageTank10;
+                case Map.ENEMY_11:
+                    return imageTank11;
+                case Map.ENEMY_12:
+                    return imageTank12;
+                case Map.ENEMY_13:
+                    return imageTank13;
+                case Map.ENEMY_14:
+                    return imageTank14;
+                case Map.ENEMY_15:
+                    return imageTank15;
+                case Map.ENEMY_16:
+                    return imageTank16;
+                case Map.ENEMY_17:
+                    return imageTank17;
+
+                case Map.ENEMY_20:
+                    return imageTank20;
+                case Map.ENEMY_21:
+                    return imageTank21;
+                case Map.ENEMY_22:
+                    return imageTank22;
+                case Map.ENEMY_23:
+                    return imageTank23;
+                case Map.ENEMY_24:
+                    return imageTank24;
+                case Map.ENEMY_25:
+                    return imageTank25;
+                case Map.ENEMY_26:
+                    return imageTank26;
+                case Map.ENEMY_27:
+                    return imageTank27;
+
+                case Map.ENEMY_30:
+                    return imageTank30;
+                case Map.ENEMY_31:
+                    return imageTank31;
+                case Map.ENEMY_32:
+                    return imageTank32;
+                case Map.ENEMY_33:
+                    return imageTank33;
+                case Map.ENEMY_34:
+                    return imageTank34;
+                case Map.ENEMY_35:
+                    return imageTank35;
+                case Map.ENEMY_36:
+                    return imageTank36;
+                case Map.ENEMY_37:
+                    return imageTank37;
             }
         }
 
