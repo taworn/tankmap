@@ -217,27 +217,24 @@ namespace tankmap {
                 int imageSourceTag = int.Parse(imageSource.Tag.ToString());
 
                 if (mapObject.Get(imageLocationTag) != imageSourceTag) {
-                    if (mapObject.Get(imageLocationTag) == Map.BLOCK_HERO) {
-                        // removes hero
-                        mapObject.SetHeroXY(-1, -1);
+                    if (imageSourceTag == Map.BLOCK_HERO) {
+                        // removes old position of hero
+                        var size = mapObject.GetWidth() * mapObject.GetHeight();
+                        var i = 0;
+                        while (i < size) {
+                            var block = mapObject.Get(i);
+                            if (block == Map.BLOCK_HERO) {
+                                mapObject.Set(i, Map.BLOCK_PASS);
+                                Image im = (Image)mapGrid.Children[i];
+                                im.Source = imagePass.Source;
+                            }
+                            i++;
+                        }
                     }
 
                     // sets new image
                     mapObject.Set(imageLocationTag, imageSourceTag);
                     image.Source = imageSource.Source;
-
-                    if (imageSourceTag == Map.BLOCK_HERO) {
-                        // sets hero
-                        var x = mapObject.GetHeroX();
-                        var y = mapObject.GetHeroY();
-                        if (x >= 0 && y >= 0) {
-                            mapObject.Set(y * mapObject.GetWidth() + x, Map.BLOCK_PASS);
-                            ((Image)mapGrid.Children[y * mapObject.GetWidth() + x]).Source = imagePass.Source;
-                        }
-                        x = imageLocationTag % mapObject.GetWidth();
-                        y = imageLocationTag / mapObject.GetWidth();
-                        mapObject.SetHeroXY(x, y);
-                    }
                 }
 
                 if (!mapChanged) {

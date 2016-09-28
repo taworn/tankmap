@@ -13,8 +13,6 @@ namespace tankmap {
 
         private int width;
         private int height;
-        private int heroX;
-        private int heroY;
         private int[] blockData;
 
         /// <summary>
@@ -23,8 +21,6 @@ namespace tankmap {
         public Map(int w, int h) {
             width = w;
             height = h;
-            heroX = -1;
-            heroY = -1;
             blockData = new int[width * height];
             for (var i = 0; i < width * height; i++)
                 Set(i, BLOCK_PASS);
@@ -47,11 +43,9 @@ namespace tankmap {
                         throw new IOException("Header is not acceptable.");
 
                 // reads header information
-                // 4 int = width, height, hero x, hero y
+                // 2 int = width, height
                 int w = reader.ReadInt32();
                 int h = reader.ReadInt32();
-                int x = reader.ReadInt32();
-                int y = reader.ReadInt32();
 
                 // reads block data
                 int size = w * h;
@@ -62,8 +56,6 @@ namespace tankmap {
                 // copying data
                 this.width = w;
                 this.height = h;
-                this.heroX = x;
-                this.heroY = y;
                 this.blockData = blockData;
             }
             finally {
@@ -86,11 +78,9 @@ namespace tankmap {
                 writer.Write(check);
 
                 // writes header information
-                // 4 int = width, height, hero x, hero y
+                // 2 int = width, height
                 writer.Write(width);
                 writer.Write(height);
-                writer.Write(heroX);
-                writer.Write(heroY);
 
                 // writes block data
                 int size = width * height;
@@ -109,19 +99,6 @@ namespace tankmap {
 
         public int GetHeight() {
             return height;
-        }
-
-        public int GetHeroX() {
-            return heroX;
-        }
-
-        public int GetHeroY() {
-            return heroY;
-        }
-
-        public void SetHeroXY(int x, int y) {
-            heroX = x;
-            heroY = y;
         }
 
         public int Get(int index) {
