@@ -11,13 +11,13 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
-                <MenuItem Header="_New" Click="menuFileNew_Click"/>
-                <MenuItem Header="_Open..." Click="menuFileOpen_Click"/>
-                <MenuItem Header="_Save" x:Name="menuFileSave" Click="menuFileSave_Click"/>
+                <MenuItem Header="_New" InputGestureText="Ctrl+N" Click="menuFileNew_Click"/>
+                <MenuItem Header="_Open..." InputGestureText="Ctrl+O" Click="menuFileOpen_Click"/>
+                <MenuItem Header="_Save" InputGestureText="Ctrl+S" x:Name="menuFileSave" Click="menuFileSave_Click"/>
                 <MenuItem Header="S_ave As..." x:Name="menuFileSaveAs" Click="menuFileSaveAs_Click"/>
-                <MenuItem Header="_Close" x:Name="menuFileClose" Click="menuFileClose_Click"/>
+                <MenuItem Header="_Close" InputGestureText="Ctrl+W" x:Name="menuFileClose" Click="menuFileClose_Click"/>
                 <Separator/>
-                <MenuItem Header="E_xit" Click="menuFileExit_Click"/>
+                <MenuItem Header="E_xit" InputGestureText="Ctrl+X" Click="menuFileExit_Click"/>
             </MenuItem>
             <MenuItem Header="_Edit">
                 <MenuItem Header="Around with Pass" x:Name="menuEditPass" Click="menuEditPass_Click"/>

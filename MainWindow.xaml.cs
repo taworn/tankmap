@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace tankmap {
     /// <summary>
@@ -21,6 +22,26 @@ namespace tankmap {
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
+            RoutedCommand commandFileNew = new RoutedCommand();
+            commandFileNew.InputGestures.Add(new KeyGesture(Key.N, ModifierKeys.Control));
+            CommandBindings.Add(new CommandBinding(commandFileNew, menuFileNew_Click));
+
+            RoutedCommand commandFileOpen = new RoutedCommand();
+            commandFileOpen.InputGestures.Add(new KeyGesture(Key.O, ModifierKeys.Control));
+            CommandBindings.Add(new CommandBinding(commandFileOpen, menuFileOpen_Click));
+
+            RoutedCommand commandFileSave = new RoutedCommand();
+            commandFileSave.InputGestures.Add(new KeyGesture(Key.S, ModifierKeys.Control));
+            CommandBindings.Add(new CommandBinding(commandFileSave, menuFileSave_Click));
+
+            RoutedCommand commandFileClose = new RoutedCommand();
+            commandFileClose.InputGestures.Add(new KeyGesture(Key.W, ModifierKeys.Control));
+            CommandBindings.Add(new CommandBinding(commandFileClose, menuFileClose_Click));
+
+            RoutedCommand commandFileExit = new RoutedCommand();
+            commandFileExit.InputGestures.Add(new KeyGesture(Key.X, ModifierKeys.Control));
+            CommandBindings.Add(new CommandBinding(commandFileExit, menuFileExit_Click));
+
             title = Title;
             radioBlock.IsChecked = true;
             imageSource = imagePass;
